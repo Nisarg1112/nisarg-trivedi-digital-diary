@@ -15,7 +15,7 @@ export default function Custom404() {
           <div className={util.glitchWrapper}>
             <h1 className={util.glitchText} data-text="404">404</h1>
           </div>
-          <p className={util.errorMessage}>Oops! Looks like you've ventured into the void</p>
+          <p className={util.errorMessage}>{"Oops! Looks like you've ventured into the void"}</p>
           <div className={util.errorAnimation}>
             <span className={util.particle}>⟡</span>
             <span className={util.particle}>◇</span>

@@ -286,6 +286,6 @@ export async function getStaticProps() {
       updatesList: updates,
       readingListList: readingList
     },
-    revalidate: 5
+    revalidate: 300
   }
 }

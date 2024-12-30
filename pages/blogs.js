@@ -149,6 +149,6 @@ export async function getStaticProps() {
 
   return {
     props: { blogs },
-    revalidate: 100, // Regenerate the page every 10 seconds
+    revalidate: 300, // Regenerate the page every 100 seconds
   };
 }

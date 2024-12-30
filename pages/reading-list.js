@@ -223,6 +223,6 @@ export async function getStaticProps() {
     props: {
       list: readingList,
     },
-    revalidate: 5,
+    revalidate: 300,
   };
 }

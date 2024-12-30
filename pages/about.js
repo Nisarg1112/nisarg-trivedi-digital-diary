@@ -286,6 +286,6 @@ export async function getStaticProps() {
       list: recentsList,
       expList: experienceList
     },
-    revalidate: 5
+    revalidate: 3600
   }
 }
