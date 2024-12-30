@@ -1,4 +1,4 @@
-import styles from "./BlogTile.module.css";
+import styles from "./blogTile.module.css";
 
 export default function BlogTile({ title, url, date, fav, tags, description }) {
   return (
