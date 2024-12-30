@@ -1,0 +1,149 @@
+.container {
+  padding: 2rem 2rem 2rem 3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  position: relative;
+  transition: all 0.2s ease;
+  background: var(--bg);
+  border-left: 2px solid var(--gray4);
+}
+
+.container:before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 2rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gray4);
+  transition: all 0.2s ease;
+}
+
+.container:hover:before {
+  background: var(--gray12);
+  transform: scale(1.2);
+}
+
+.container:after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--gray4);
+  transform: scaleY(1.2);
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.container:hover:after {
+  opacity: 1;
+}
+
+.content {
+  font-size: var(--font-l);
+  color: var(--gray11);
+  margin-top: 0.75rem;
+  line-height: 1.6;
+  max-width: 650px;
+}
+
+.date {
+  width: 85px;
+  font-size: var(--font-s);
+  font-weight: 500;
+  color: var(--gray9);
+  margin-top: 0.25rem;
+  margin-right: 2rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.titleLink {
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  padding: 0.25rem 0.5rem;
+  margin: -0.25rem -0.5rem;
+  border-radius: 6px;
+  color: var(--gray12);
+}
+
+.titleLink:hover {
+  background: var(--gray3);
+}
+
+.externalIcon {
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.2s ease;
+  font-family: system-ui;
+  font-size: 15px;
+  margin-left: 4px;
+  color: var(--gray10);
+}
+
+.container:hover .externalIcon {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.container:hover .bulletItem:before {
+  background: var(--gray12);
+  transform: translateY(-50%) scale(1.2);
+}
+
+.inline {
+  display: inline;
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 1.5rem 1.5rem 1.5rem 2rem;
+    flex-direction: column;
+  }
+
+  .date {
+    width: auto;
+    margin-bottom: 0.75rem;
+  }
+
+  .content {
+    font-size: var(--font-m);
+  }
+}
+
+.bulletList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bulletItem {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.bulletItem:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gray9);
+  transform: translateY(-50%);
+  transition: all 0.2s ease;
+}

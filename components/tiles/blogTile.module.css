@@ -1,0 +1,90 @@
+.container {
+  background: var(--linkContainerBg);
+  border: 1px solid var(--linkContainerBorder);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 0.75rem 0;
+  transition: all 0.2s ease;
+}
+
+.container:hover {
+  background: var(--linkContainerBgHover);
+  border-color: var(--linkContainerBorderHover);
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.dateWrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gray9);
+  font-size: var(--font-s);
+  transition: color 0.2s ease;
+}
+
+.dateWrapper:hover {
+  color: var(--gray12);
+}
+
+.calendarIcon {
+  opacity: 0.7;
+  color: var(--gray9);
+}
+
+.tags {
+  display: flex;
+  gap: 6px;
+}
+
+.tag {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: var(--font-s);
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  transform: translateY(-1px);
+}
+
+.title {
+  font-size: var(--font-l);
+  font-weight: 500;
+  color: var(--gray12);
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.titleLink:hover .title {
+  color: var(--link-color);
+}
+
+.externalIcon {
+  margin-left: 4px;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.titleLink:hover .externalIcon {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+.description {
+  color: var(--gray11);
+  font-size: var(--font-m);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.favorite {
+  color: var(--favorite-color);
+  margin-left: auto;
+}

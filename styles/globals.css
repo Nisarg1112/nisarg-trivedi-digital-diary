@@ -1,0 +1,422 @@
+@import "@radix-ui/colors/gray.css";
+@import "@radix-ui/colors/whiteA.css";
+@import "@radix-ui/colors/blackA.css";
+@import "@radix-ui/colors/grayDark.css";
+@import "@radix-ui/colors/blue.css";
+@import "@radix-ui/colors/blueDark.css";
+
+@font-face {
+  font-family: "Aktiv Grotesk";
+  src: url("/fonts/AktivGroteskVF_W_Wght.woff2") format("woff2 supports variations"),
+    url("/fonts/AktivGroteskVF_W_Wght.woff2") format("woff2-variations");
+
+  font-weight: 100 900;
+}
+
+/* @font-face {
+  font-family: "Caveat";
+  src: url("/fonts/Caveat-VariableFont_wght.ttf");
+  font-weight: 400 700;
+} */
+@import url("https://rsms.me/inter/inter.css");
+
+html {
+  font-family: "Inter", sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: "Inter var", sans-serif;
+    font-weight: 100 900;
+  }
+}
+
+/* @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&display=swap"); */
+
+:root {
+  --font-sans: Aktiv Grotesk;
+  --font-l: 14.7px;
+  --font-m: 13.5px;
+  --font-s: 12.3px;
+
+  --appbg: rgb(248, 248, 248);
+  --bg: white;
+  --bgSticky: rgba(255, 255, 255, 0.746);
+
+
+  --menuLabel: rgba(0, 0, 0, 0.825);
+
+  --highlight: rgba(255, 255, 255, 0.95);
+  /* --highlight: rgba(0, 0, 0, 0.06); */
+  --highlighthover: rgba(0, 0, 0, 0.04);
+  --highlightActiveBorder: rgba(0, 0, 0, 0.064);
+  --tabbg: rgba(0, 0, 0, 0.04);
+  --tabText: rgba(0, 0, 0, 0.32);
+
+  --linkContainerBg: rgb(255, 255, 255);
+  --linkContainerGrayBg: rgb(251, 251, 251);
+
+  --linkContainerBorder: rgb(245, 245, 245);
+  --linkContainerBgHover: rgb(243, 243, 243);
+  --linkContainerBorderHover: rgb(230, 230, 230);
+
+  --tabBorder: rgb(240, 240, 240);
+
+  --overlayDarkness: rgba(0 0 0 / 0.3);
+  --modalBg: rgb(255, 255, 255);
+
+  --imageBg: #f9fafb;
+  --highlightInModal: rgba(0, 0, 0, 0.05);
+  --highlightInModalStroke: rgba(0, 0, 0, 0.03);
+  
+  /* Add these variables */
+  --content-width: 680px;
+  --content-padding: 2rem;
+
+  /* ... existing variables ... */
+    --code-bg: var(--gray3);
+    --code-color: var(--gray12);
+    --code-border: var(--gray4);
+    --date-color: var(--gray9);
+  
+    --card-bg: #ffffff;
+      --border-color: #e5e7eb;
+      --text-primary: #111827;
+      --text-secondary: #4b5563;
+      --link-color: #2563eb;
+      --link-hover: #1d4ed8;
+      --tag-bg: #f3f4f6;
+      --tag-text: #374151;
+      --favorite-color: #eab308;
+}
+
+@media (max-width: 700px) {
+  :root {
+    --font-l: 15px;
+    --font-m: 13.8px;
+    --font-s: 12.7px;
+  }
+}
+
+.dark-theme {
+  /* Remap your colors for dark mode */
+  --appbg: rgb(32, 32, 32);
+  --bg: rgb(16, 16, 16);
+  --bgSticky: rgba(16, 16, 16, 0.746);
+
+  --menuLabel: rgba(255, 255, 255, 0.8);
+  --highlight: rgba(255, 255, 255, 0.1);
+  --highlighthover: rgba(255, 255, 255, 0.05);
+  --highlightActiveBorder: rgba(255, 255, 255, 0.04);
+  --tabbg: rgba(255, 255, 255, 0.06);
+  --tabText: rgba(255, 255, 255, 0.372);
+
+  --linkContainerBg: rgb(21, 21, 21);
+  --linkContainerGrayBg: rgb(25, 25, 25);
+
+  --linkContainerBorder: rgb(26, 26, 26);
+  --linkContainerBgHover: rgb(42, 42, 42);
+  --linkContainerBorderHover: rgb(45, 45, 45);
+
+  --tabBorder: rgb(44, 44, 44);
+
+  --overlayDarkness: rgba(0, 0, 0, 0.75);
+  --modalBg: rgb(32, 32, 32);
+
+  --imageBg: #191919;
+
+  --highlightInModal: rgba(255, 255, 255, 0.11);
+  --highlightInModalStroke: rgba(255, 255, 255, 0.08);
+
+  /* Add dark mode specific variables */
+  /* --code-bg: rgb(40, 40, 40); */
+  --blockquote-border: rgb(64, 64, 64);
+
+  --code-bg: #1e1e1e;
+    --code-color: #d4d4d4;
+    --code-border: #2d2d2d;
+  
+    --card-bg: #1f2937;
+      --border-color: #374151;
+      --text-primary: #f9fafb;
+      --text-secondary: #9ca3af;
+      --link-color: #60a5fa;
+      --link-hover: #93c5fd;
+      --tag-bg: #374151;
+      --tag-text: #d1d5db;
+      --favorite-color: #fbbf24;
+}
+
+.bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  opacity: 0.04;
+  z-index: -1;
+}
+
+.dark-theme .bg {
+  opacity: 0.08;
+}
+
+.base {
+  background-color: var(--appbg);
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  z-index: -2;
+}
+
+.dark-theme .iconInvert {
+  filter: invert(1);
+  transition: color 0.2s ease;
+}
+
+.logoInvert {
+  width: 185px;
+  margin: 1.775rem 0rem 1rem 0.975rem;
+  transition: color 0.2s ease;
+  opacity: 0.9;
+  -webkit-user-drag: none;
+}
+
+.dark-theme .logoInvert {
+  filter: invert(1);
+}
+
+html,
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+button {
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-sans);
+  position: relative;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+p {
+  letter-spacing: 0.1px;
+  font-weight: 390;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+span a[href*="http"] {
+  text-decoration: underline;
+  transition: color 100ms ease;
+}
+
+span a[href*="http"]:hover {
+  color: var(--gray12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+code {
+  background: var(--gray5);
+  border-radius: 3px;
+  padding: 0px 4px;
+  margin: 0px 0px 0px;
+}
+
+/* ::-webkit-scrollbar {
+  display: none;
+} */
+.tag {
+  padding: 3px 4px;
+  margin-left: 3px;
+  border-radius: 3px;
+  font-size: var(--font-s);
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.74);
+  transition: all 0.2s ease;
+}
+
+.dark-theme .tag {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.defaultTag {
+  background-color: #f1f1f0;
+}
+
+.grayTag {
+  background-color: #e3e2e0;
+}
+
+.brownTag {
+  background-color: #ece1db;
+}
+
+.orangeTag {
+  background-color: #f6dfcc;
+}
+
+.yellowTag {
+  background-color: #faedcc;
+}
+
+.greenTag {
+  background-color: #dfeddd;
+}
+
+.blueTag {
+  background-color: #d7e5ee;
+}
+
+.purpleTag {
+  background-color: #e6dfed;
+}
+
+.pinkTag {
+  background-color: #f2e1e9;
+}
+
+.redTag {
+  background-color: #fae3de;
+}
+
+.dark-theme .defaultTag {
+  background-color: #414141;
+}
+
+.dark-theme .grayTag {
+  background-color: #5a5a5a;
+}
+
+.dark-theme .brownTag {
+  background-color: #5b3d2f;
+}
+
+.dark-theme .orangeTag {
+  background-color: #7d4f27;
+}
+
+.dark-theme .yellowTag {
+  background-color: #836534;
+}
+
+.dark-theme .greenTag {
+  background-color: #375841;
+}
+
+.dark-theme .blueTag {
+  background-color: #2f4469;
+}
+
+.dark-theme .purpleTag {
+  background-color: #453061;
+}
+
+.dark-theme .pinkTag {
+  background-color: #62344b;
+}
+
+.dark-theme .redTag {
+  background-color: #673932;
+}
+
+@media (max-width: 700px) {
+  .tag {
+    margin-left: 0px;
+    margin-right: 3px;
+  }
+}
+
+.tag {
+  background: var(--tabbg);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: var(--font-m);
+  color: var(--gray11);
+  transition: all 0.2s ease;
+  box-shadow: inset 0 0 0 1px var(--linkContainerBorder);
+}
+
+.tag:hover {
+  transform: translateY(-1px);
+  background: var(--highlight);
+}
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.loader-bar {
+  height: 100%;
+  background: linear-gradient(90deg,
+      var(--link-color) 0%,
+      var(--link-hover) 50%,
+      var(--link-color) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+  box-shadow: 0 0 12px var(--link-color);
+  border-radius: 0 5px 5px 0;
+  transition: width 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.dark-theme .loader-bar {
+  background: linear-gradient(90deg,
+      var(--link-hover) 0%,
+      var(--blue9) 50%,
+      var(--link-hover) 100%);
+  box-shadow: 0 0 12px var(--link-hover);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Optional: Add a subtle pulse effect */
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+
+  50% {
+    transform: scaleY(1.8);
+  }
+}
+
+.loader-bar::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--bg));
+  filter: blur(3px);
+}

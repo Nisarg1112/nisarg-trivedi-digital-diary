@@ -1,0 +1,84 @@
+.mainText {
+  font-size: var(--font-l);
+  margin-bottom: 4px;
+}
+.subText {
+  color: var(--gray9);
+  font-size: var(--font-m);
+}
+.buttonPair {
+  border: 1px solid var(--gray4);
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  transition: border 0.2s ease;
+}
+
+.rightBorder {
+  border-right: 1px solid var(--gray4);
+  transition: background-color 0.2s ease, border 0.2s ease;
+}
+
+.textButton {
+  padding: 0.5rem 0.5rem;
+  background-color: transparent;
+  border: none;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+  margin-right: -0.45rem;
+  margin-left: 0.5rem;
+}
+.textButton:hover {
+  background-color: var(--gray4);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem 0rem 1rem;
+  border-bottom: 1px solid var(--gray3);
+  align-items: center;
+  transition: border 0.2s ease;
+}
+.row:last-child {
+  padding: 1.5rem 0rem 0rem;
+
+  border-bottom: none;
+}
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.stack {
+  display: flex;
+  flex-direction: column;
+  width: 13.5rem;
+  margin: 0.75rem 0rem;
+}
+.icon {
+  border-radius: 4px;
+}
+@media (max-width: 700px) {
+  .stack {
+    width: 100%;
+  }
+  .textButton {
+    margin-left: -0.45rem;
+    margin-right: 0.5rem;
+  }
+  .row {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 0rem 1.5rem;
+  }
+  .row:first-child {
+    padding-top: 0rem;
+  }
+}
