@@ -16,7 +16,7 @@ export default function Subscribe() {
       <main className={util.page}>
         <div className={util.pageColumn}>
 
-        <h1 className={util.header}>Let's Connect! 🚀</h1>
+        <h1 className={util.header}>{"Let's Connect! 🚀"}</h1>
             <div className={util.read}>
             <p>
                 {"Hey There! Thanks for wanting to stay in touch. I write about my coding adventures, tech insights, and those random 3 AM thoughts that won't let me sleep. If you're into tech, business, or just like diving deep into how things work - you'll feel right at home here."}
