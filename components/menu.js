@@ -80,6 +80,12 @@ export default function Menu() {
             shortcut="7"
           />
           <p className={styles.divider}>Stay in touch</p>
+          <NavLink
+          svg="blogs"
+          href="/subscribe"
+          label="Subscribe"
+          shortcut="8"
+        />
           <Contact svg="chat" label="Contact" shortcut="/" />
           <NavLink
             svg="linkedin"

@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import Settings from "../components/settings";
 import { client } from "../sanity/lib/client";
 import SEO from '../components/SEO/index.js';
+import SubstackSubscribe from "../components/substackSubscribe";
 
 
 export default function BlogList({ blogs }) {
@@ -124,6 +125,8 @@ export default function BlogList({ blogs }) {
               ))
             )}
           </ul>
+        <div className={util.divider}></div>
+        <SubstackSubscribe variant="default" />
         </div>
       </main>
     </>

@@ -8,6 +8,7 @@ import { PortableText } from "@portabletext/react";
 import { client } from "../../sanity/lib/client";
 import { format } from "date-fns";
 import imageUrlBuilder from '@sanity/image-url';
+import SubstackSubscribe from "../../components/substackSubscribe";
 
 const ShareButtons = dynamic(() => import("../../components/shareButtons"));
 const Analytics = dynamic(() => import("@vercel/analytics/react").then(mod => mod.Analytics), {
@@ -148,7 +149,7 @@ const components = {
 
 export default function BlogDetail({ blog }) {
   if (!blog) return <p>Loading...</p>;
-  const blogUrl = `${process.env.DOMAIN}/blogs/${blog.slug.current}`;
+  const blogUrl = `${process.env.NEXT_PUBLIC_DOMAIN}/blogs/${blog.slug.current}`;
 
   // Ensure consistent date formatting
   const formattedDate = format(new Date(blog.publishedAt), "MMMM dd, yyyy");
@@ -199,6 +200,7 @@ export default function BlogDetail({ blog }) {
             url={blogUrl}
             title={blog.title}
           />
+          <SubstackSubscribe variant="compact" />
         </div>
         <Analytics />
       </main>

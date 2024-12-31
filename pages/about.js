@@ -22,7 +22,7 @@ export default function About({ list, expList }) {
     return () => thisPage.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const description = `I’m a software engineer by heart, deeply curious about how things truly work. My interests span across Music, Finance, Geopolitics/Politics, History, Spirituality, Religious Scriptures, Technology, and Computer Science. If you enjoy diving deep into meaningful topics and no-fluff engineering, welcome to my corner of the internet, where I share my thoughts, discoveries, and tech adventures.`;
+  const description = `I’m a software engineer by heart, deeply curious about how things truly work. My interests span across Music, Astronomy, Cricket, Finance, Geopolitics/Politics, History, Spirituality, Religious Scriptures, Technology, and Computer Science. If you enjoy diving deep into meaningful topics and no-fluff engineering, welcome to my corner of the internet, where I share my thoughts, discoveries, and tech adventures.`;
 
   return (
     <>

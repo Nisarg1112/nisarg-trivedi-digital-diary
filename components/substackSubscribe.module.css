@@ -1,0 +1,42 @@
+.container {
+    padding: 1.5rem;
+    border-radius: 8px;
+    background: var(--linkContainerBg);
+    border: 1px solid var(--linkContainerBorder);
+    margin: 2rem 0;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.container:hover {
+    background: var(--linkContainerBgHover);
+    border-color: var(--linkContainerBorderHover);
+}
+
+.container.compact {
+    padding: 1rem;
+    margin: 1.5rem 0;
+}
+
+.iframeWrapper {
+    margin-top: 1rem;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--bg);
+}
+
+.iframe {
+    width: 100%;
+    height: 320px;
+    background: var(--bg);
+    color-scheme: light;
+}
+
+@media (max-width: 700px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .iframe {
+        height: 340px;
+    }
+}

@@ -4,12 +4,12 @@ export default function SEO({
   title = "Nisarg Trivedi - Portfolio",
   description = "Personal portfolio and blog by Nisarg Trivedi",
   image = "/og-image.jpeg",
-  url = process.env.DOMAIN,
+  url = process.env.NEXT_PUBLIC_DOMAIN,
   type = "website",
   keywords = "developer, portfolio, blog",
   author = "Nisarg Trivedi",
   excerpt,
-  domain = process.env.DOMAIN,
+  domain = process.env.NEXT_PUBLIC_DOMAIN,
   isArticle = false
 }) {
   return (
@@ -48,17 +48,34 @@ export default function SEO({
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
-          "@type": isArticle ? "Article" : "WebSite",
+          "@type": isArticle ? "BlogPosting" : "WebSite",
+          "@id": `${url}/#${isArticle ? "BlogPosting" : "WebSite"}`,
+          "mainEntityOfPage": url,
           "headline": title,
+          "name": title,
           "description": description,
           "image": image,
           "author": {
             "@type": "Person",
-            "name": author
+            "name": author,
+            "url": `${process.env.NEXT_PUBLIC_DOMAIN}/about`,
+            "image": image,
           },
+          "isPartOf": {
+                "@type": isArticle ? "Blog" : "WebSite",
+                "@id": `${process.env.NEXT_PUBLIC_DOMAIN}/blogs`,
+                "name": "Nisarg's Blogs",
+                "publisher": {
+                    "@type": "Person",
+                    "name": "Nisarg Trivedi",
+                    "url": `${process.env.NEXT_PUBLIC_DOMAIN}/about`,
+                    "image": image
+                }
+            },
           "url": url,
           ...(isArticle && {
             "datePublished": new Date().toISOString(),
+            "dateModified": new Date().toISOString(),
             "articleBody": excerpt
           })
         })}
