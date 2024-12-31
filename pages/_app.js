@@ -5,6 +5,7 @@ import Menu from "../components/menu";
 import toast, { Toaster } from "react-hot-toast";
 import React, { useEffect } from "react";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Script from 'next/script'
 import LoadingBar from '../components/LoadingBar';
 import Head from 'next/head';
@@ -59,6 +60,7 @@ function MyApp({ Component, pageProps }) {
       <Menu />
       <Component {...pageProps} />
       <Analytics />
+      <SpeedInsights />
     </ThemeProvider>
   );
 }
