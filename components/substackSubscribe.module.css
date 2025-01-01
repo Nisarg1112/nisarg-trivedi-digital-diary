@@ -31,12 +31,18 @@
     color-scheme: light;
 }
 
+@media (max-width: 1024px) {
+    .iframe {
+        height: 380px;
+    }
+}
+
 @media (max-width: 700px) {
     .container {
         padding: 1rem;
     }
 
     .iframe {
-        height: 340px;
+        height: 500px;
     }
 }
