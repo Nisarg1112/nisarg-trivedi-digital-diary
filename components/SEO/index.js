@@ -3,7 +3,7 @@ import Head from 'next/head'
 export default function SEO({
   title = "Nisarg Trivedi - Portfolio",
   description = "Personal portfolio and blog by Nisarg Trivedi",
-  image = "/og-image.jpeg",
+  image = `${process.env.NEXT_PUBLIC_DOMAIN}/og-image.jpeg`,
   url = process.env.NEXT_PUBLIC_DOMAIN,
   type = "website",
   keywords = "developer, portfolio, blog",
