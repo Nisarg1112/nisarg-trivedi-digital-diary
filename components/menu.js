@@ -75,8 +75,8 @@ export default function Menu() {
           />
           <NavLink
             svg="podcasts"
-            href="/podcasts"
-            label="Podcasts"
+            href="/youtube-channels"
+            label="Youtube Channels"
             shortcut="7"
           />
           <p className={styles.divider}>Stay in touch</p>

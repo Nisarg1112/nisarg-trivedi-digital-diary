@@ -1,8 +1,8 @@
-import styles from "./podcastTile.module.css";
+import styles from "./youtubeChannelsTile.module.css";
 import Image from "next/image";
 import util from "../../styles/util.module.css";
 
-export default function PodcastTile({
+export default function YoutubeChannelsTile({
   imageUrl,
   title,
   content,

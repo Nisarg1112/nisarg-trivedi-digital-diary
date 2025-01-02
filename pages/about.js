@@ -77,7 +77,7 @@ export default function About({ list, expList }) {
               </p>
               <p>
                 {
-                  "When I’m not coding, you’ll probably catch me vibing to music on Spotify. If the tunes stop, it usually means my code has a bug that’s haunting me. Want to see what’s currently on repeat? You can check out "
+                  "When I’m coding, you’ll probably catch me vibing to music on Spotify. If the tunes stop, it usually means my code has a bug that’s haunting me. Want to see what’s currently on repeat? You can check out "
                 }
                 <a
                   href="https://volt.fm/user/rkarhonjazighp6j/"
@@ -90,7 +90,7 @@ export default function About({ list, expList }) {
                 {". 🎶🎧"}
               </p>
               <p>
-                {"Staying active is a big part of my routine. But I 'try to' hit the gym 5 times a week because, And when I need a break, you'll mostly find me at a peaceful beach, watching the sunset and letting my thoughts wander. (Not much of a mountain guy, though—don’t ask me to go hiking! 😅)"}
+                {"Staying active is a big part of my routine. And I 'try to' hit the gym 5 times a week. When I need a break, you'll mostly find me at a peaceful beach, watching the sunset and letting my thoughts wander. (Not much of a mountain guy, though—don’t ask me to go hiking! 😅)"}
               </p>
               <p>
                 {"I like to watch TV shows / Web Series, Movies, Standup Comedy shows, YT videos around random things ranging from 'Tarak Mehta ka Ooltah Chashmah' to. '3Blue1Brown's facinating videos around Maths. But that’s not all—my YouTube feed is a wild mix of everything from geopolitical discussions to deep dives into physics and everything in between. If it’s thought-provoking or just plain entertaining, you’ll find me watching it. 🎥🍿"}

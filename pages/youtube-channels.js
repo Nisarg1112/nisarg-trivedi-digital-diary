@@ -1,49 +1,46 @@
-import Head from "next/head";
 import util from "../styles/util.module.css";
-import ReadingListTile from "../components/tiles/readingListTile";
 import React, { useEffect } from "react";
-import { useRouter } from "next/router";
-import Settings from "../components/settings";
-import { client } from '../sanity/lib/client'
+import YoutubeChannelsTile from "../components/tiles/youtubeChannels.js";
+import { client } from "../sanity/lib/client.js";
 import SEO from '../components/SEO/index.js'
+import Settings from "../components/settings";
+import { useRouter } from "next/router";
 
-
-export default function ReadingList({ list }) {
-  const description =
-    "From various blogs, articles, webpages to videos and tweets, this page is a collection of learning materials that I enjoy. I add to the list frequently, and will improve sorting and filtering soon.";
-
+export default function YoutubeChannels({ list }) {
   const router = useRouter();
   const [filter, setFilter] = React.useState(null);
   const [fav, setFav] = React.useState(null);
   const [currentList, setCurrentList] = React.useState(null);
   const [searchTerm, setSearchTerm] = React.useState("");
 
+  const filters = [
+    "Tech",
+    "Entertainment",
+    "Science",
+    "General",
+    "Politics",
+    "Lifestyle",
+    "Business & Finance",
+    "DSA",
+  ];
+
   useEffect(() => {
-    let thisPage = document.querySelector("#readingPage");
-    let top = sessionStorage.getItem("reading-scroll");
+    let thisPage = document.querySelector("#youtubeChannelsPage");
+    let top = sessionStorage.getItem("channel-scroll");
     if (top !== null) {
       thisPage.scrollTop = top;
     }
     const handleScroll = () => {
-      sessionStorage.setItem("reading-scroll", thisPage.scrollTop);
+      sessionStorage.setItem("channel-scroll", thisPage.scrollTop);
     };
     thisPage.addEventListener("scroll", handleScroll);
     return () => thisPage.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const filters = [
-    "Tech",
-    "System Design",
-    "General",
-    "Career Development",
-    "Business & Finance",
-    "DSA",
-    "Science",
-  ];
-
   function removeFilter() {
     setFilter("all");
   }
+
   function handleTagChange(e) {
     setFilter(e.target.innerHTML);
   }
@@ -66,7 +63,7 @@ export default function ReadingList({ list }) {
 
   useEffect(() => {
     if (router && router.query.filter == null) {
-      let filterSelected = sessionStorage.getItem("reading-filter");
+      let filterSelected = sessionStorage.getItem("channel-filter");
       if (filterSelected && filterSelected !== filter) {
         setFilter(filterSelected);
       } else {
@@ -74,7 +71,7 @@ export default function ReadingList({ list }) {
       }
     }
     if (router && router.query.favonly == null) {
-      let favSelected = sessionStorage.getItem("reading-fav");
+      let favSelected = sessionStorage.getItem("channel-fav");
       if (favSelected == "true") {
         setFav(true);
       } else {
@@ -86,55 +83,56 @@ export default function ReadingList({ list }) {
   useEffect(() => {
     if (filter && fav !== null) {
       let tempList = [...list];
+      console.log(tempList)
 
-      // Apply search filter first
       if (searchTerm) {
         tempList = tempList.filter((item) =>
           item.name.toLowerCase().includes(searchTerm.toLowerCase())
         );
       }
 
-      // Then apply existing filters
       if (filter !== "all" && !fav) {
         router.push({ query: { filter: filter } });
-        sessionStorage.setItem("reading-filter", filter);
-        sessionStorage.setItem("reading-fav", false);
-        tempList = tempList.filter(item => item.tags?.includes(filter.replace("&amp;", "&")));
+        sessionStorage.setItem("channel-filter", filter);
+        sessionStorage.setItem("channel-fav", false);
+        tempList = tempList.filter(item => item.tags?.includes(filter));
       } 
       else if (filter !== "all" && fav) {
         router.push({ query: { filter: filter, favonly: fav } });
-        sessionStorage.setItem("reading-filter", filter);
-        sessionStorage.setItem("reading-fav", true);
+        sessionStorage.setItem("channel-filter", filter);
+        sessionStorage.setItem("channel-fav", true);
         tempList = tempList.filter(item => 
-          item.tags?.includes(filter.replace("&amp;", "&")) && item.fav
+          item.tags?.includes(filter) && item.fav
         );
       }
       else if (filter === "all" && fav) {
         router.push({ query: { favonly: fav } });
-        sessionStorage.setItem("reading-filter", "all");
-        sessionStorage.setItem("reading-fav", true);
+        sessionStorage.setItem("channel-filter", "all");
+        sessionStorage.setItem("channel-fav", true);
         tempList = tempList.filter(item => item.fav);
       }
       else {
         router.push({ query: {} });
-        sessionStorage.setItem("reading-filter", "all");
-        sessionStorage.setItem("reading-fav", false);
+        sessionStorage.setItem("channel-filter", "all");
+        sessionStorage.setItem("channel-fav", false);
       }
 
       setCurrentList(tempList);
     }
   }, [filter, fav, searchTerm]);
 
+  const description = "Youtube channels that I follow and enjoy watching. I have a wide range of interests, so the channels are quite diverse.";
+
   return (
     <>
       <SEO 
-        title="Nisarg's Reading List"
+        title="Nisarg's Youtube Channels"
         description={description}
         type="website"
       />
-      <main className={util.page} id="readingPage">
+      <main className={util.page} id="youtubeChannelsPage">
         <div className={util.pageColumn}>
-          <h1 className={util.header}>Reading List 📚</h1>
+          <h1 className={util.header}>My favourite Youtube Channels</h1>
           <p className={util.description}>{description}</p>
 
           <div className={util.searchContainer}>
@@ -143,59 +141,54 @@ export default function ReadingList({ list }) {
             </svg>
             <input
               type="text"
-              placeholder="Search reading list..."
+              placeholder="Search channels..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className={util.searchInput}
             />
           </div>
 
-          <ul className={util.list}>
-            <div className={util.tabBar}>
-              <div className={util.tabRow}>
+          <div className={util.tabBar}>
+            <div className={util.tabRow}>
+              <button
+                onClick={removeFilter}
+                className={util.tab}
+                role="tab"
+                aria-selected={filter == "all" ? "true" : null}
+              >
+                All Channels
+              </button>
+              {filters.map((filterName) => (
                 <button
-                  onClick={removeFilter}
+                  key={filterName}
+                  onClick={handleTagChange}
                   className={util.tab}
                   role="tab"
-                  aria-selected={filter == "all" ? "true" : null}
+                  aria-selected={filter === filterName ? "true" : null}
                 >
-                  Recently Added
+                  {filterName}
                 </button>
-                {filters.map((filterName) => (
-                  <button
-                    key={filterName}
-                    onClick={handleTagChange}
-                    className={util.tab}
-                    role="tab"
-                    aria-selected={
-                      filter
-                        ? filterName == filter.replace("&amp;", "&")
-                          ? "true"
-                          : null
-                        : null
-                    }
-                  >
-                    {filterName}
-                  </button>
-                ))}
-              </div>
-              <Settings status={fav} updateCheckbox={setFav} />
+              ))}
             </div>
+            <Settings status={fav} updateCheckbox={setFav} />
+          </div>
 
+          <ul className={util.grid}>
             {currentList ? (
-              currentList.length == 0 ? (
+              currentList.length === 0 ? (
                 <div className={util.emptyState}>
                   Nothing found. Please try adjusting the filter.
                 </div>
               ) : (
-                currentList.map((link) => (
-                  <ReadingListTile
-                    key={link._id}
-                    title={link.name}
-                    url={link.url}
-                    date={link._createdAt}
-                    fav={link.fav}
-                    tags={link.tags}
+                currentList.map((item) => (
+                  <YoutubeChannelsTile
+                    key={item._id}
+                    imageUrl={item.logo}
+                    title={item.name}
+                    content={item.body}
+                    url={item.url}
+                    tags={item.tags}
+                    fav={item.fav}
                   />
                 ))
               )
@@ -210,21 +203,22 @@ export default function ReadingList({ list }) {
 }
 
 export async function getStaticProps() {
-  const readingList = await client.fetch(`
-      *[_type == "readingList" && display == true] | order(_createdAt desc) [0...8] {
-        _id,
-        name,
-        url,
-        _createdAt,
-        fav,
-        tags
-      }
-    `)
+  const list = await client.fetch(`
+    *[_type == "podcast"] | order(order asc) {
+      _id,
+      name,
+      "logo": logo.asset->url,
+      body,
+      url,
+      tags,
+      fav
+    }
+  `);
 
   return {
     props: {
-      list: readingList,
+      list
     },
-    revalidate: 300,
+    revalidate: 600
   };
 }

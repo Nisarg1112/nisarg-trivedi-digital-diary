@@ -1,0 +1,4 @@
+
+Sitemap: https://nisargtrivedi.com/sitemap.xml
+User-agent: *
+Allow: /*
