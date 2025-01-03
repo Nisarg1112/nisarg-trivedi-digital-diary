@@ -62,3 +62,87 @@
     flex-direction: row;
   }
 }
+/* Existing styles remain unchanged */
+
+/* Mobile FAB Styles */
+.fabContainer {
+  display: none;
+}
+
+.mobileContainer {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .container {
+    display: none;
+  }
+
+  .mobileContainer {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--bg);
+    border-top: 1px solid var(--border-color);
+  }
+
+  .mobileNav {
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 16px;
+  }
+
+  .fabWrapper {
+    position: fixed;
+    right: 20px;
+    bottom: 80px;
+  }
+
+  .fab {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--link-color);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    z-index: 1001;
+  }
+
+  .fabOpen {
+    transform: rotate(45deg);
+  }
+
+  .fabMenu {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    background: var(--bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--border-color);
+    width: max-content;
+    max-width: 300px;
+    overflow: hidden;
+  }
+
+  .fabSection {
+    padding: 8px;
+  }
+
+  .fabDivider {
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray9);
+  }
+}
