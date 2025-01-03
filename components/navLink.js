@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import * as Tooltip from "@radix-ui/react-tooltip";
 
-export default function NavLink({ svg, label, href, shortcut, external }) {
+export default function NavLink({ svg, label, href, shortcut, external, isFabItem }) {
   const router = useRouter();
 
   const ariaCurrent =
@@ -50,7 +50,7 @@ export default function NavLink({ svg, label, href, shortcut, external }) {
     </a>
   ) : (
     <Link href={href}>
-      <a className={styles.item} aria-current={ariaCurrent}>
+      <a className={`${isFabItem ? styles.fabItem : styles.item}`} aria-current={ariaCurrent}>
         <div className={styles.left}>
           <div className={util.icon}>
             <Image
@@ -62,9 +62,14 @@ export default function NavLink({ svg, label, href, shortcut, external }) {
               alt={label}
             />
           </div>
-          <p className={styles.label}>{label}</p>
+          {isFabItem ? (
+            <span className={styles.fabLabel}>{label}</span>
+          ) : (
+            <span className={styles.label}>{label}</span>
+          )}
+          {/* <p className={styles.label}>{label}</p> */}
         </div>
-        {shortcut ? (
+        {shortcut && !isFabItem ? (
           <Tooltip.Provider delayDuration={500}>
             <Tooltip.Root>
               <Tooltip.Trigger asChild>

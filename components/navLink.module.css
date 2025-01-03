@@ -70,6 +70,23 @@
   display: flex;
   align-items: center;
 }
+.label {
+  font-size: 13.2px;
+  margin: 0px 0px 0px 10px;
+  color: var(--menuLabel);
+  font-weight: 450;
+  letter-spacing: 0.2px;
+  transition: color 0.2s ease;
+}
+
+.fabLabel {
+  font-size: 13.2px;
+  margin: 0px 0px 0px 10px;
+  color: var(--menuLabel);
+  font-weight: 450;
+  letter-spacing: 0.2px;
+  transition: color 0.2s ease;
+}
 @media (max-width: 700px) {
   .shortcut {
     display: none;
@@ -77,6 +94,17 @@
   .label {
     display: none;
   }
+  
+            .fabItem {
+              width: 100%;
+              padding: 8px 16px;
+              justify-content: flex-start;
+            }
+  
+      .fabLabel {
+        display: block;
+      }
+    
   .item {
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
     height: 3rem;
