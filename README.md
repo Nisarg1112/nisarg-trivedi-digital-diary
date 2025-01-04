@@ -1,6 +1,6 @@
 # Nisarg Trivedi's Digital Diary
 
-A modern, theme-aware portfolio website built with Next.js featuring blogs, reading lists, favourite youtube channels, newsletters, and more.
+A modern, theme-aware personal website built with Next.js featuring blogs, reading lists, favourite youtube channels, newsletters, and more.
 
 ## Features
 - 📦 Built with Next.js
@@ -23,14 +23,14 @@ A modern, theme-aware portfolio website built with Next.js featuring blogs, read
 - Node Version Manager (nvm)
 - Node.js 20.17.0
 - npm 10.8.2
-- Setup Sanity CMS [Follow This Guide](##setup-sanity-cms)
+- Setup Sanity CMS [Follow This Guide](#setup-sanity-cms)
 
 ## Setup Sanity CMS
 1. Clone [This Repository](https://github.com/Nisarg1112/studio-nisarg-digital-diary)
 ```
 git clone https://github.com/Nisarg1112/studio-nisarg-digital-diary.git
 ```
-2. Follow the instructions in the README.md file of the cloned repository to set up the Sanity CMS.
+2. Follow the instructions in the [README.md](https://github.com/Nisarg1112/studio-nisarg-digital-diary/blob/main/README.md) file of the cloned repository to set up the Sanity CMS.
 
 ## Getting Started
 

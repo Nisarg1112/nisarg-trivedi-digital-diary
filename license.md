@@ -10,7 +10,7 @@ Users are **prohibited** from:
 - Redistributing the project without proper attribution.
 
 ## Attribution Requirements
-- A visible credit must be given to "[Nisarg Trivedi](https://www.linkedin.com/in/nisargtrivedi1112/)" on the website or project where this work is used.
+- A visible credit must be given to "[Nisarg Trivedi](https://www.linkedin.com/in/nisargtrivedi1112/)" on the website and project where this work is used.
 - For GitHub forks:
   - The repository must be forked from [[Original Repository URL](https://github.com/Nisarg1112/nisarg-trivedi-digital-diary)].
   - The `README` file of the forked repository must include the following credit:
