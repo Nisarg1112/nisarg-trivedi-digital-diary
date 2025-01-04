@@ -75,6 +75,53 @@ npm run dev
 ```
 After successful installation, Sanity Studio will be available at `http://localhost:3000`
 
+## Deployment
+
+### Deploy to Vercel
+1. Fork this repository to your GitHub account
+2. Go to [vercel.com/new](https://vercel.com/new)
+3. Import your forked repository
+4. Vercel will automatically detect Next.js and configure the build settings
+5. Add required environment variables from `.env.sample`
+6. Click "Deploy".
+
+Your site will be live at a `.vercel.app` domain within minutes.
+
+### Custom Domain Setup
+
+#### Option 1: Using Vercel as Name Servers (Recommended)
+1. Go to your project on Vercel dashboard
+2. Navigate to "Settings" → "Domains"
+3. Add your domain name
+4. Vercel will provide you with name servers (usually 4)
+5. Go to your domain registrar's dashboard
+6. Replace existing name servers with Vercel's name servers
+7. Wait for DNS propagation (can take up to 48 hours)
+
+Vercel's name servers typically look like:
+```bash
+ns1.vercel-dns.com
+ns2.vercel-dns.com
+```
+
+#### Option 2: Using A and CNAME Records
+1. Go to your project on Vercel dashboard
+2. Navigate to "Settings" → "Domains"
+3. Add your domain name
+4. Keep your existing name servers
+5. Add these DNS records at your domain registrar:
+6. A Record: Point @ to 76.76.21.21
+7. CNAME Record: Point www to cname.vercel-dns.com
+
+Both methods will:
+
+- Automatically configure SSL certificates
+- Enable automatic domain security
+- Provide DDoS protection
+- Enable Vercel's global CDN
+
+You can verify the setup by checking the domain status in your Vercel dashboard.
+
 ## Help & Support
 Need help? Feel free to reach out:
 
