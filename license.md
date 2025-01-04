@@ -1,4 +1,4 @@
-# Custom License for [Your Project Name]
+# Custom License for Nisarg Trivedi's Digital Diary
 
 ## Summary
 This license allows users to:
