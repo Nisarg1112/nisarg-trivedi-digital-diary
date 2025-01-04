@@ -91,7 +91,6 @@ const MobileMenu = ({ isFabOpen, isClosing, theme, setTheme, closeFabMenu, toggl
       <NavLink svg="about" href="/about" label="About" shortcut="2" />
       <NavLink svg="blogs" href="/blogs" label="Blogs" shortcut="3" />
       <Contact svg="chat" label="Contact" isFabItem={true} />
-      <NavLink svg="linkedin" href="https://www.linkedin.com/in/nisargtrivedi1112/" label="LinkedIn" external="true" isFabItem={true} />
     </nav>
 
     <div className={styles.fabWrapper}>

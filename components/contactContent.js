@@ -123,6 +123,22 @@ export default function ContactContent() {
             />
             <span className={util.iconButtonText}>Twitter</span>
           </a>
+          <a
+            className={styles.textButton}
+            href="https://github.com/Nisarg1112"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              className={styles.icon}
+              priority
+              src={"/icons/github.svg"}
+              height={23}
+              width={23}
+              alt="twitter"
+            />
+            <span className={util.iconButtonText}>Github</span>
+          </a>
           {/* <a
             className={styles.textButton}
             href="https://read.cv/hello"

@@ -54,7 +54,7 @@ npm -v  # Should show 10.8.2
 
 ### 3. Installl dependencies
 ```bash
-npm install
+npm install --legacy-peer-deps
 ```
 
 ### 4. Environment Variables
