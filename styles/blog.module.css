@@ -2,7 +2,7 @@
 .blogContent {
   max-width: var(--content-width);
   margin: 0 auto;
-  padding: 0.5rem var(--content-padding);
+  padding: -0.5rem var(--content-padding);
   font-family: var(--font-sans);
   background: var(--bg);
 }
@@ -187,7 +187,7 @@
 /* Large Desktop styles */
 @media (min-width: 1024px) {
   .featuredImage {
-    width: auto;
+    width: 200px;
     height: 200px;
     position: relative;
     margin-bottom: 1rem;
