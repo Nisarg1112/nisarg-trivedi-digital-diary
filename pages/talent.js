@@ -252,34 +252,12 @@ export default function Talent({ list }) {
   );
 }
 
-//notion API
+// TODO: Migrate this to Sanity once the page is ready.
 export async function getStaticProps() {
-  const notion = new Client({ auth: process.env.NOTION_API_KEY });
-
-  const response = await notion.databases.query({
-    database_id: process.env.NOTION_TALENT_ID,
-    filter: {
-      and: [
-        {
-          property: "Display",
-          checkbox: {
-            equals: true,
-          },
-        },
-      ],
-    },
-    sorts: [
-      {
-        property: "Created",
-        direction: "descending",
-      },
-    ],
-  });
-
   return {
     props: {
-      list: response.results,
+      list: [],
     },
-    revalidate: 86400,
+    revalidate: 9999999999999999999999999,
   };
 }
